@@ -1,0 +1,10 @@
+/.next
+/next-env.d.ts
+/package-lock.json
+/public
+/src/app/fonts
+/index.html
+/styles.css
+/script-1.js
+/script-2.js
+/assets
