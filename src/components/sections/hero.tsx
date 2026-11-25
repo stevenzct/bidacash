@@ -16,20 +16,20 @@ export function Hero() {
       aria-labelledby="hero-title"
     >
       <div className="wrap hero-frame grid items-center">
-        <div className="hero-copy relative z-1">
+        <div className="hero-copy relative z-1 text-center lg:text-left">
           <h1 id="hero-title" className="brand-heading hero-title">
             Fast. Transparent.
             <br />
             <span className="text-brand-accent">Responsible Lending.</span>
           </h1>
-          <p className="hero-lead max-w-[54ch] text-brand-muted">
+          <p className="hero-lead mx-auto max-w-[42ch] text-brand-muted lg:mx-0 lg:max-w-[54ch]">
             Explore short-term personal loans for qualified Filipino borrowers.
-            <br className="hidden min-[961px]:block" /> Review fees and
-            requirements before you borrow.
+            <br className="hidden lg:block" /> Review fees and requirements
+            before you borrow.
           </p>
-          <div className="flex flex-wrap items-center gap-x-[23px] gap-y-2">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 lg:justify-start lg:gap-x-[23px]">
             <a
-              className="primary-link inline-flex min-h-11 items-center"
+              className="primary-link ripple-link inline-flex min-h-11 items-center"
               href="#products"
             >
               View loan details
@@ -60,7 +60,7 @@ export function Hero() {
               className="hero-image"
               fetchPriority="high"
               loading="eager"
-              sizes="(min-width: 1423px) 692px, (min-width: 961px) 49vw, (min-width: 768px) 51vw, (min-width: 500px) 453px, 91vw"
+              sizes="(min-width: 1423px) 692px, (min-width: 1024px) 49vw, (min-width: 498px) 448px, 90vw"
             />
           </div>
         </div>

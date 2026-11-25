@@ -38,7 +38,7 @@ npm start
 | `src/lib/site.ts`                    | Site title, description, language, and production origin validation            |
 | `public/images/` and `public/icons/` | Published artwork, wordmark, social image, and favicon                         |
 
-The sections render on the server. Native links and disclosures work with JavaScript disabled. The small client component observes the sticky header so in-page links land clear of it when the header changes height.
+The sections render on the server. Native links and disclosures work with JavaScript disabled. Below 1024 px, the sticky header opens a full-screen hamburger menu with a Contact us action pinned to the bottom. The hero copy, actions, and artwork are centered at the same breakpoint. With JavaScript enabled, the menu closes on link selection, Escape, or an outside press. The header observer keeps anchor destinations clear of the sticky header.
 
 ## Design and assets
 
@@ -58,9 +58,11 @@ The source lists support email and mobile details as “Pending confirmation.”
 
 Playwright checked the production build in Chromium at widths of 320, 375, 390, 430, 768, 1024, 1280, 1440, and 1920 pixels. It compared the original copy, checked for horizontal overflow and clipped text, exercised navigation and all 13 disclosures, and checked for broken resources and browser errors. Original and migrated screenshots were compared at mobile, tablet, and desktop sizes. The skip link, 404, reduced motion, and navigation and disclosures with JavaScript disabled were also checked. Axe reported zero violations at 390 px and 1440 px with disclosures open and closed.
 
+The mobile layout checks also covered landscape phones and the 1023–1024 px breakpoint. They verified hero centering, menu dismissal, keyboard focus, and anchor scrolling.
+
 A build with a test origin verified the canonical URL, Open Graph and Twitter images, website structured data, robots file, and sitemap.
 
-Lighthouse 13.6.0 measured the local production build. Mobile results are medians from three runs for each throttling method.
+Lighthouse 13.6.0 measured the local production build before the mobile menu and hero alignment update. Mobile results are medians from three runs for each throttling method.
 
 | Profile                              | Performance | Accessibility | Best practices | SEO |    LCP | CLS |
 | ------------------------------------ | ----------: | ------------: | -------------: | --: | -----: | --: |
@@ -81,7 +83,7 @@ The migration added the files below. The original tracked files are preserved.
 | Repository root                     | `.env.example`, `.gitignore`, `.prettierignore`, `.prettierrc.json`, `README.md`, `eslint.config.mjs`, `next.config.ts`, `package.json`, `package-lock.json`, `postcss.config.mjs`, `tsconfig.json`                                                                                                                                |
 | `src/app/`                          | `globals.css`, `layout.tsx`, `not-found.tsx`, `page.tsx`, `robots.ts`, `sitemap.ts`                                                                                                                                                                                                                                                |
 | `src/app/fonts/`                    | `inter-variable.woff2`, `OFL.txt`                                                                                                                                                                                                                                                                                                  |
-| `src/components/layout/`            | `navigation-height.tsx`, `site-footer.tsx`, `site-header.tsx`                                                                                                                                                                                                                                                                      |
+| `src/components/layout/`            | `mobile-navigation.tsx`, `navigation-height.tsx`, `site-footer.tsx`, `site-header.tsx`                                                                                                                                                                                                                                             |
 | `src/components/sections/`          | `about.tsx`, `compliance.tsx`, `contact.tsx`, `hero.tsx`, `product-artwork.tsx`, `products.tsx`                                                                                                                                                                                                                                    |
 | `src/components/ui/` and `src/lib/` | `disclosure.tsx`, `site.ts`                                                                                                                                                                                                                                                                                                        |
 | `public/icons/`                     | `bidacash.png`, `check.svg`                                                                                                                                                                                                                                                                                                        |

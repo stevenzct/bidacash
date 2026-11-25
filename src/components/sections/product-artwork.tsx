@@ -19,7 +19,7 @@ export function ProductArtwork() {
         fill
         unoptimized
         fetchPriority="low"
-        className="object-contain object-bottom"
+        className="-translate-x-[3%] -translate-y-5 object-contain object-bottom lg:translate-none"
       />
     </div>
   );

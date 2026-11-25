@@ -17,7 +17,7 @@ export function Disclosure({
   initiallyOpen,
 }: DisclosureProps) {
   return (
-    <details id={id} open={initiallyOpen}>
+    <details id={id} className="disclosure" open={initiallyOpen}>
       <summary>
         {Icon && (
           <Icon
@@ -28,7 +28,7 @@ export function Disclosure({
         )}
         <span>{title}</span>
       </summary>
-      {children}
+      <div className="disclosure-body">{children}</div>
     </details>
   );
 }

@@ -124,7 +124,7 @@ export function Products() {
     >
       <div className="wrap">
         <div className="loan-guide relative isolate">
-          <div className="loan-banner relative z-1 flex flex-col md:grid md:items-center">
+          <div className="loan-banner relative z-1 flex flex-col lg:grid lg:items-center">
             <div className="loan-copy relative z-1">
               <Image
                 src="/images/bidacash-wordmark.svg"
@@ -151,8 +151,8 @@ export function Products() {
             <Image
               src={presenter}
               alt=""
-              className="absolute -bottom-0.5 h-auto max-w-none"
-              sizes="(min-width: 1150px) 684px, (min-width: 851px) 55vw, (min-width: 768px) 49vw, (min-width: 580px) 430px, 75vw"
+              className="absolute bottom-0 left-1/2 h-auto max-w-none -translate-x-1/2 lg:-bottom-0.5 lg:left-auto lg:translate-x-0"
+              sizes="(min-width: 1245px) 684px, (min-width: 1024px) 55vw, (min-width: 520px) 520px, 100vw"
             />
           </div>
           <LoanFactCards />

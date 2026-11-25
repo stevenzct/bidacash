@@ -33,7 +33,7 @@ export function Contact() {
       aria-labelledby="support-title"
     >
       <div className="support-stage">
-        <div className="wrap support-hero grid items-center pt-6">
+        <div className="wrap support-hero grid items-center gap-y-4 pt-6 lg:gap-y-0">
           <div>
             <h2
               id="support-title"
@@ -49,8 +49,8 @@ export function Contact() {
           <Image
             src={supportImage}
             alt=""
-            className="support-image block w-full self-end justify-self-center object-contain object-bottom"
-            sizes="(min-width: 1422px) 640px, (min-width: 601px) 45vw, 43vw"
+            className="support-image block w-auto max-w-full self-end justify-self-center object-contain object-bottom lg:w-full"
+            sizes="(min-width: 1422px) 640px, (min-width: 1024px) 45vw, (min-width: 498px) 384px, 77vw"
           />
         </div>
       </div>
