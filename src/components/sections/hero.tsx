@@ -4,9 +4,9 @@ import { ClipboardList, ReceiptText, ShieldCheck } from 'lucide-react';
 import heroArtwork from '@/images/hero-loan-approved.webp';
 
 const benefits = [
-  { label: 'Transparent Pricing', icon: ReceiptText },
-  { label: 'Simple Application', icon: ClipboardList },
-  { label: 'Secure and Compliant', icon: ShieldCheck },
+  { label: ['Transparent', 'Pricing'], icon: ReceiptText },
+  { label: ['Simple', 'Application'], icon: ClipboardList },
+  { label: ['Secure and', 'Compliant'], icon: ShieldCheck },
 ];
 
 export function Hero() {
@@ -65,20 +65,25 @@ export function Hero() {
           </div>
         </div>
         <ul
+          role="list"
           aria-label="Why Bidacash"
           className="hero-benefits relative col-span-full grid list-none"
         >
-          {benefits.map(({ label, icon: Icon }) => (
+          {benefits.map(({ label: [firstLine, lastLine], icon: Icon }) => (
             <li
-              key={label}
-              className="hero-benefit flex items-center justify-center rounded-2xl border border-[#e6dcee] bg-white text-center font-[650] text-[#110e3b]"
+              key={firstLine}
+              className="hero-benefit flex items-center text-[#110e3b]"
             >
-              <Icon
-                aria-hidden="true"
-                className="size-6 shrink-0 text-[#7916b0] md:size-[27px] xl:size-8"
-                strokeWidth={1.8}
-              />
-              <span>{label}</span>
+              <span className="hero-benefit-icon shrink-0" aria-hidden="true">
+                <Icon
+                  className="size-[var(--hero-benefit-icon-size,27px)] text-[#7916b0] xl:size-[var(--hero-benefit-icon-size,32px)]"
+                  strokeWidth={1.8}
+                />
+              </span>
+              <span>
+                {firstLine}{' '}
+                <span className="hero-benefit-label-end">{lastLine}</span>
+              </span>
             </li>
           ))}
         </ul>
