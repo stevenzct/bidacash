@@ -1,25 +1,25 @@
 import Image from 'next/image';
-import { Clock3, Mail, MapPin } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
+import { Clock3, MapPin } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 import supportImage from '@/images/contact-support.webp';
 import { Disclosure } from '@/components/ui/disclosure';
 
 function SupportField({
-  icon: Icon,
+  icon,
   children,
 }: {
-  icon: LucideIcon;
+  icon: ReactNode;
   children: ReactNode;
 }) {
   return (
     <div className="support-field flex min-w-0 items-center gap-3.5">
-      <Icon
+      <span
         aria-hidden="true"
-        strokeWidth={1.65}
-        className="size-11 shrink-0 rounded-[13px] bg-[#f2e7ff] p-2.5 text-[#7614c3]"
-      />
+        className="grid size-11 shrink-0 place-items-center rounded-[13px] bg-[#f2e7ff] text-[#7614c3]"
+      >
+        {icon}
+      </span>
       <div>{children}</div>
     </div>
   );
@@ -56,21 +56,25 @@ export function Contact() {
       </div>
       <div className="wrap relative">
         <div className="support-info grid rounded-[22px] border border-[#e5d6f6] bg-white leading-normal text-[#211c46]">
-          <SupportField icon={Mail}>
+          <SupportField
+            icon={
+              <span className="size-7 bg-current mask-[url('/icons/contact-channels.webp')] mask-contain mask-center mask-no-repeat" />
+            }
+          >
             <p>
-              <strong>E-mail:</strong> Pending confirmation.
+              <strong>E-mail:</strong> compliant@bidacash.vip
             </p>
             <p>
-              <strong>Mobile:</strong> Pending confirmation.
+              <strong>Mobile:</strong> +63 9981397164
             </p>
           </SupportField>
-          <SupportField icon={MapPin}>
+          <SupportField icon={<MapPin strokeWidth={1.65} />}>
             <p>
               <strong>Office:</strong> Unit 1207, The Finance Centre, 26th St
               cor. 9th Ave., BGC, Taguig, Metro Manila, 1635, Philippines
             </p>
           </SupportField>
-          <SupportField icon={Clock3}>
+          <SupportField icon={<Clock3 strokeWidth={1.65} />}>
             <p>
               <strong>Support hours:</strong> Monday to Friday, 9:00 a.m. to
               6:00 p.m. (Philippine Time), excluding public holidays
@@ -87,7 +91,7 @@ export function Contact() {
               </p>
               <p>
                 <strong>Step 2 — </strong>We will acknowledge receipt of your
-                complaint within five (5) business days.
+                complaint within two (2) business days.
               </p>
               <p>
                 <strong>Step 3 — </strong>We will investigate and provide a
